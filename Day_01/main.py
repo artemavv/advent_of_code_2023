@@ -1,4 +1,3 @@
-
 def read_data() -> list:
     data = []
     with open("data.txt", "r") as file:
@@ -33,13 +32,16 @@ def get_calibration_value(string):
     return value
 
 
+def run_day_1_part_1(strings):
+    sum_of_values = 0
+    for line in strings:
+        sum_of_values += get_calibration_value(line)
+    return sum_of_values
+
+
 if __name__ == '__main__':
     list_of_strings = read_data()
 
-    sum_of_values = 0
-    for line in list_of_strings:
-        sum_of_values += get_calibration_value(line)
-        print(get_calibration_value(line))
-
+    result = run_day_1_part_1( list_of_strings )
     print("Total:")
-    print(sum_of_values)
+    print(result)
